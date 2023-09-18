@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div>
       <div>{counter.value}</div>
-      <button onClick={counter.increase}>
+      <button onClick={counter.increase}>   
         plus
       </button>
       <button onClick={counter.decrease}>
