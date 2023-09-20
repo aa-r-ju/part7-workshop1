@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
+import { Table } from "react-bootstrap";
 const Notes = ({notes}) => {
 
   return (
-    <ul>
+    <>
+    <h2>All notes </h2>
+      <Table striped>
+          <tbody>
       {notes.map((note) => (
-        <Link to={`/notes/${note.id}`} key={note.id}> 
-          <li>
-          {note.content} <strong>{note.important ? "important" : ""}</strong>
-          </li>
-        </Link>
+        
+          <tr key ={note.id}>
+         <td><Link to={`/notes/${note.id}`} key={note.id}> {note.content} </Link> </td>
+         <td> <strong>{note.important ? "important" : ""}</strong></td>
+          </tr>
+       
       ))}
-    </ul>
+      </tbody>
+    </Table>
+    </>
   );
 };
 
