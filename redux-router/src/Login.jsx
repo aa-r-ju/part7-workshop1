@@ -1,32 +1,30 @@
-import { useNavigate } from "react-router-dom"
-import {TextField,Button} from "@mui/material";
+import { useNavigate } from "react-router-dom";
+// import { Form, Button } from "react-bootstrap";
+// import { TextField, Button } from "@mui/material";
+import { Button, Input } from "./Button";
 
+const Login = ({ setUser }) => {
+  const navigate = useNavigate();
 
-const Login = ({setUser}) => {
-    const navigate = useNavigate()
-    const onSubmit = (event) => {
-        event.preventDefault()
-       setUser(event.target.username.value)
-       navigate('/')
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUser(event.target.username.value);
+    navigate("/");
+  };
 
-
-    return(
-        <>
-        
-        <h2>login</h2>
-      <form onSubmit={onSubmit}>
+  return (
+    <>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
         <div>
-          <TextField label="username" name="username"/>
+          <Input label="username" name="username" />
         </div>
         <div>
-          <Button variant="contained" color="primary" type="submit">
-            login
-          </Button>
+          <Button type="submit">submit</Button>
         </div>
       </form>
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default Login
+export default Login;
